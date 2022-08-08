@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="data"
+            type="id.iglo.common.entity.movie_review.Result" />
+
+        <import type="id.iglo.common.base.Constants" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:custom="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardUseCompatPadding="true"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <RelativeLayout
+                android:id="@+id/parentRelative"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="10dp"
+                    android:text="@{data.content}"
+                    android:textColor="@color/black"
+                    android:textSize="12sp" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/avatarImg"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_below="@+id/content"
+                    android:background="#00000000"
+                    custom:loadImageCircled="@{data.authorDetails.avatarPath.startsWith(`/http`)   ? data.authorDetails.avatarPath.substring(1) : Constants.IMG_CONFIG+data.authorDetails.avatarPath}" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/username"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/content"
+                    android:layout_toEndOf="@id/avatarImg"
+                    android:gravity="top"
+                    android:lineSpacingExtra="1sp"
+                    android:text="@{data.authorDetails.username}"
+                    android:textColor="@color/black"
+                    android:textSize="12sp"
+                    android:translationY="-0.65sp"
+                    tools:text="Michael Jordan" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/may_20_2019"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/username"
+                    android:layout_toEndOf="@id/avatarImg"
+                    android:gravity="top"
+                    android:lineSpacingExtra="4sp"
+                    android:text="@{data.createdAt}"
+                    android:textColor="@color/black"
+                    android:textSize="12sp"
+                    tools:text="2012-13-12" />
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">TheMovieDBTest</string>
+    <string name="fab">fab</string>
+    <string name="no_movie">No Movie</string>
+    <string name="retry">Retry</string>
+    <string name="no_video">No Video</string>
+    <string name="review">Review</string>
+    <string name="no_review">No Review</string>
+</resources>
